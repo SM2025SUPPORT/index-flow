@@ -3,7 +3,12 @@
     "allow": [
       "WebSearch",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(gh repo create:*)",
+      "Bash(vercel:*)",
+      "Bash(railway --version)",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []
