@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: indexflow
+    env: node
+    plan: starter
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: PUBLIC_URL
+        sync: false
+      - key: WEBFLOW_CLIENT_ID
+        sync: false
+      - key: WEBFLOW_CLIENT_SECRET
+        sync: false
+      - key: INDEXNOW_API_KEY
+        sync: false
+      - key: GOOGLE_SERVICE_ACCOUNT_JSON
+        sync: false
+      - key: DATABASE_PATH
+        value: /var/data/indexflow.db

@@ -1,0 +1,15 @@
+node_modules/
+.env
+data/
+*.db
+*.log
+.DS_Store
+dist/
+build/
+
+# IndexNow key file (generated)
+*.txt
+
+# Google Service Account Keys
+service-account.json
+gsc-credentials.json

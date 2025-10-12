@@ -1,0 +1,35 @@
+{
+  "version": "1.0.0",
+  "name": "IndexFlow",
+  "description": "Automatic indexing to Google Search Console and IndexNow for your Webflow site",
+  "homepage": "https://your-app.com",
+  "icon": "https://your-app.com/icon.png",
+  "author": {
+    "name": "Your Name",
+    "email": "your@email.com",
+    "url": "https://your-website.com"
+  },
+  "permissions": {
+    "sites": ["read"],
+    "collections": ["read"],
+    "cms": ["read"]
+  },
+  "oauth": {
+    "scopes": [
+      "sites:read",
+      "collections:read",
+      "cms:read"
+    ],
+    "redirectUris": [
+      "http://localhost:3000/auth/callback",
+      "https://your-production-url.com/auth/callback"
+    ]
+  },
+  "webhooks": {
+    "events": [
+      "collection_item_changed",
+      "site_publish",
+      "collection_item_unpublished"
+    ]
+  }
+}
