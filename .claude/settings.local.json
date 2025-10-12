@@ -8,7 +8,10 @@
       "Bash(gh repo create:*)",
       "Bash(vercel:*)",
       "Bash(railway --version)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(npm install:*)",
+      "Bash(railway login:*)",
+      "Bash(railway status:*)"
     ],
     "deny": [],
     "ask": []
