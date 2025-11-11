@@ -1,24 +1,25 @@
+import fs from 'fs';
+import path from 'path';
 import Database from 'better-sqlite3';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
-import { mkdirSync } from 'fs';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+// ====== Fix för Vercel: skrivbar mapp ======
+const DATA_DIR = '/tmp/data';
 
-const DB_PATH = process.env.DATABASE_PATH || join(__dirname, '../../data/indexflow.db');
+// Skapa mappen om den inte finns
+if (!fs.existsSync(DATA_DIR)) {
+  fs.mkdirSync(DATA_DIR, { recursive: true });
+}
 
-// Ensure data directory exists
-const dataDir = dirname(DB_PATH);
-mkdirSync(dataDir, { recursive: true });
+// Ange databasfilens path
+const DB_PATH = path.join(DATA_DIR, 'database.db');
 
-// Initialize database
+// ====== Initiera databasen ======
 const db = new Database(DB_PATH);
 
-// Enable WAL mode for better concurrency
+// Enable WAL mode för bättre concurrency
 db.pragma('journal_mode = WAL');
 
-// Create tables
+// Skapa tabeller om de inte finns
 db.exec(`
   CREATE TABLE IF NOT EXISTS submissions (
     id TEXT PRIMARY KEY,
